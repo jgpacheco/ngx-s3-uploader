@@ -12,7 +12,8 @@
     "rootDir": ".",
     "lib": [
       "es2015",
-      "dom"
+      "dom",
+      "es2015.promise"
     ],
     "skipLibCheck": true,
     "types": []

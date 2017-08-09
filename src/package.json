@@ -1,26 +1,28 @@
 {
   "name": "ngx-s3-uploader",
   "version": "0.1.0",
+  "description": "AWS S3 upload directive for Angular 2 and above.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/repo"
+    "url": "https://github.com/jgpacheco/ngx-s3-uploader.git"
   },
   "author": {
     "name": "Jaime",
     "email": "jaime.glez.pacheco@gmail.com"
   },
   "keywords": [
-    "angular"
+    "angular", "aws", "s3"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/username/repo/issues"
+    "url": "https://github.com/jgpacheco/ngx-s3-uploader.git/issues"
   },
   "module": "ngx-s3-uploader.js",
   "typings": "ngx-s3-uploader.d.ts",
   "peerDependencies": {
     "@angular/core": "^4.0.0",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.4",
+    "aws-sdk": "^2.94.0"
   }
 }
