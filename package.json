@@ -1,6 +1,6 @@
 {
   "name": "ngx-s3-uploader",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AWS S3 upload directive for Angular 2 and above.",
   "scripts": {
     "build": "gulp build",
@@ -21,7 +21,9 @@
     "email": "jaime.glez.pacheco@gmail.com"
   },
   "keywords": [
-    "angular", "aws", "s3"
+    "angular",
+    "aws",
+    "s3"
   ],
   "license": "MIT",
   "bugs": {
