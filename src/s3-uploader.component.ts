@@ -18,7 +18,9 @@ export class S3UploaderComponent {
     constructor(private s3UploaderService: S3UploaderService) {}
 
     @HostListener('click') onClick(): void {
-        this.fileInput.nativeElement.click();
+        const event = new MouseEvent('click', { bubbles: false });
+
+        this.fileInput.nativeElement.dispatchEvent(event);
     }
 
     private onChange(): void {
