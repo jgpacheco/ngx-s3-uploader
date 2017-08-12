@@ -1,6 +1,6 @@
 {
   "name": "ngx-s3-uploader",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "AWS S3 upload directive for Angular 2 and above.",
   "repository": {
     "type": "git",

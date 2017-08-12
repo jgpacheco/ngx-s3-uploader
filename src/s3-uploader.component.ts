@@ -23,7 +23,7 @@ export class S3UploaderComponent {
         this.fileInput.nativeElement.dispatchEvent(event);
     }
 
-    private onChange(): void {
+    public onChange(): void {
         const file = this.fileInput.nativeElement.files[0];
 
         this.s3UploaderService.upload(file)
