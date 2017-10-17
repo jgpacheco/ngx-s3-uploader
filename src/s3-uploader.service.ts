@@ -1,4 +1,4 @@
-import { Inject, OpaqueToken } from '@angular/core';
+import { Inject, Injectable, OpaqueToken } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { S3 } from 'aws-sdk';
 
@@ -11,6 +11,7 @@ export interface S3UploaderConfig {
 
 export const CONFIG = new OpaqueToken('config');
 
+@Injectable()
 export class S3UploaderService {
 
     private client: S3;
