@@ -74,6 +74,9 @@ If you need direct access to the service you can inject it using Dependency Inje
     }
 ```
 
+## TODO
+- Support for [Amazon Cognito Identity][loading-browser-credentials-cognito-url].
+
 ## License
 
 MIT © [Jaime](mailto:jaime.glez.pacheco@gmail.com)
@@ -86,4 +89,5 @@ MIT © [Jaime](mailto:jaime.glez.pacheco@gmail.com)
 
 [angular-s3-upload-url]: https://github.com/cheynewallace/angular-s3-upload
 [aws-developer-guide-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/building-sdk-for-browsers.html
+[loading-browser-credentials-cognito-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-browser-credentials-cognito.html
 [aws-upload-property-url]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
