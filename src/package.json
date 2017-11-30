@@ -20,7 +20,7 @@
   "module": "ngx-s3-uploader.js",
   "typings": "ngx-s3-uploader.d.ts",
   "dependencies": {
-    "aws-sdk": "^2.131.0"
+    "aws-sdk": "^2.160.0"
   },
   "peerDependencies": {
     "@angular/core": "^4.0.0",

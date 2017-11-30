@@ -69,6 +69,6 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.131.0"
+    "aws-sdk": "^2.160.0"
   }
 }
