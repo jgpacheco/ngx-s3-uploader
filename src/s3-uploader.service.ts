@@ -12,6 +12,7 @@ export interface S3UploaderConfig {
     identityPoolId?: string,
     logins?: any,
     roleArn?: string,
+    roleName?: string,
     providerId?: string,
     token?: string,
   };
@@ -42,6 +43,7 @@ export class S3UploaderService {
     if (s3UploaderConfig.credentials.roleArn) {
       credentials = new WebIdentityCredentials({
         RoleArn: s3UploaderConfig.credentials.roleArn,
+        RoleSessionName: s3UploaderConfig.credentials.roleName,
         ProviderId: this.s3UploaderConfig.credentials.providerId,
         WebIdentityToken: this.s3UploaderConfig.credentials.token
       });

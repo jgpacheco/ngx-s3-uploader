@@ -52,7 +52,7 @@ The recommended way to obtain AWS credentials for your browser scripts is to use
     export class AppModule {}
 ```
 
-Alternatively you can authenticate with the [Web Federated Identity][aws-docs-federated] method
+Alternatively you can authenticate with the [Web Federated Identity][aws-docs-federated] method.
 
 ```typescript
     import { S3UploaderModule } from 'ngx-s3-uploader';
@@ -62,13 +62,14 @@ Alternatively you can authenticate with the [Web Federated Identity][aws-docs-fe
             S3UploaderModule.forRoot({
               region: 'REGION',
               bucket: 'BUCKET_NAME',
-              credentials: { roleArn: 'ROLE_ARN', providerId: 'PROVIDER_ID', token: 'ACCESS_TOKEN' },
+              credentials: { roleArn: 'ROLE_ARN', roleName: 'ROLE_SESSION_NAME', providerId: 'PROVIDER_ID', token: 'ACCESS_TOKEN' },
             })
         ],
         ...
     })
     export class AppModule {}
 ```
+As the role session name is adviced to pass the name or identifier that is associated with the user.
 
 Now you can use s3-uploader directive in your Angular application:
 
