@@ -30,6 +30,29 @@ $ npm install ngx-s3-uploader --save
     export class AppModule {}
 ```
 
+**Warning**
+While it is possible to do so, we [recommend][aws-developer-guide-url] you not hard code credentials inside an application or browser script.
+Hard coding credentials poses a risk of exposing your access key ID and secret access key. See [Best Practices][aws-docs-iam-best-practices] in the IAM User Guide.
+
+The recommended way to obtain AWS credentials for your browser scripts is to use the Amazon Cognito Identity credentials.
+See [Identity Pools][aws-docs-identity-pools] for instructions to create identity pools.
+
+```typescript
+    import { S3UploaderModule } from 'ngx-s3-uploader';
+
+    @NgModule({
+        imports: [
+            S3UploaderModule.forRoot({
+              region: 'REGION',
+              bucket: 'BUCKET_NAME',
+              credentials: { identityPoolId: 'IDENTITY_POOL_ID' },
+            })
+        ],
+        ...
+    })
+    export class AppModule {}
+```
+
 You can find more information about AWS SDK [here][aws-developer-guide-url].
 
 
@@ -74,8 +97,26 @@ If you need direct access to the service you can inject it using Dependency Inje
     }
 ```
 
-## TODO
-- Support for [Amazon Cognito Identity][loading-browser-credentials-cognito-url].
+You can also use this service to update *logins* when using Amazon Cognito Identity.
+
+```typescript
+    import { S3UploaderService } from 'ngx-s3-uploader';
+
+    @Component({})
+    export class AppComponent {
+        constructor(private s3UploaderService: S3UploaderService) {}
+
+        private facebookLogin(): void {
+            FB.login((response) => {
+              if (response.authResponse) {
+                this.s3UploaderService.authenticate('graph.facebook.com', response.authResponse.accessToken);
+              } else {
+                console.log('There was a problem logging you in.');
+              }
+            });
+        }
+    }
+```
 
 ## License
 
@@ -88,6 +129,7 @@ MIT © [Jaime](mailto:jaime.glez.pacheco@gmail.com)
 [license-url]: LICENSE
 
 [angular-s3-upload-url]: https://github.com/cheynewallace/angular-s3-upload
-[aws-developer-guide-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/building-sdk-for-browsers.html
-[loading-browser-credentials-cognito-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-browser-credentials-cognito.html
+[aws-developer-guide-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started.html
+[aws-docs-identity-pools]: http://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html
+[aws-docs-iam-best-practices]: http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege.html
 [aws-upload-property-url]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
