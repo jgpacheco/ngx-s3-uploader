@@ -1,6 +1,8 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { S3, CognitoIdentityCredentials, WebIdentityCredentials, config } from 'aws-sdk';
+import { CognitoIdentityCredentials, WebIdentityCredentials } from 'aws-sdk';
+import * as S3 from 'aws-sdk/clients/s3';
+import { config } from 'aws-sdk/global';
 
 export interface S3UploaderConfig {
   apiVersion?: string;
