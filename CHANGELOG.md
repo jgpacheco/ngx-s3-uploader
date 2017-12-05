@@ -13,4 +13,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - OpaqueToken was removed in Angular 5. Use InjectionToken instead.
 
 ### Added
-- Amazon cognito identity support added.
+- Amazon cognito identity support added by @emanuelet.
