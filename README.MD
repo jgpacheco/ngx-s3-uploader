@@ -131,9 +131,11 @@ You can also use this service to update _logins_ when using Amazon Cognito Ident
     }
 ```
 
-## License
 
-[![npm version](https://badge.fury.io/js/ngx-s3-uploader.svg)](https://badge.fury.io/js/ngx-s3-uploader)
+## TODO
+- Allow access token to be updated after initialization when [Web Federated Identity][aws-docs-federated] method is used.
+
+## License
 
 MIT © [Jaime](mailto:jaime.glez.pacheco@gmail.com)
 
