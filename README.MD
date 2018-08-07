@@ -4,6 +4,8 @@
 
 The library is inspired by [AngularJS To S3 Upload App][angular-s3-upload-url]
 
+For Angular 6, use [ng6-s3-uploader][ng6-s3-uploader-url]
+
 ## Installation
 
 To install this library, run:
@@ -139,6 +141,7 @@ You can also use this service to update _logins_ when using Amazon Cognito Ident
 
 MIT © [Jaime](mailto:jaime.glez.pacheco@gmail.com)
 
+[ng6-s3-uploader-url]: https://github.com/jgpacheco/ng6-s3-uploader
 [angular-s3-upload-url]: https://github.com/cheynewallace/angular-s3-upload
 [aws-developer-guide-url]: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started.html
 [aws-docs-iam-best-practices]: http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege.html
