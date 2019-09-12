@@ -70,6 +70,7 @@ export class S3UploaderService {
     return Observable.create((observer) => {
       this.client.upload(
         { Key: key || file.name, Body: file, ACL: acl, ContentType: file.type, Bucket: bucket || this.s3UploaderConfig.bucket },
+        {queueSize: 3 * 1024},
         (error, data) => {
           if (error) { return observer.error(error); }
 
