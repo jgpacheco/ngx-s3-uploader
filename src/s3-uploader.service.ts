@@ -66,10 +66,11 @@ export class S3UploaderService {
     }
   }
 
-  public upload(file: File, acl = 'public-read', bucket?: string): Observable<any> {
+  public upload(file: File, acl = 'public-read', key?: string, bucket?: string): Observable<any> {
     return Observable.create((observer) => {
       this.client.upload(
-        { Key: file.name, Body: file, ACL: acl, ContentType: file.type, Bucket: bucket || this.s3UploaderConfig.bucket },
+        { Key: key || file.name, Body: file, ACL: acl, ContentType: file.type, Bucket: bucket || this.s3UploaderConfig.bucket },
+        {queueSize: 3 * 1024},
         (error, data) => {
           if (error) { return observer.error(error); }
 

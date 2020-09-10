@@ -100,7 +100,7 @@ If you need direct access to the service you can inject it using Dependency Inje
         constructor(private s3UploaderService: S3UploaderService) {}
 
         private upload(file): void {
-            this.s3UploaderService.upload(file, 'ACL_TO_APPLY', 'BUCKET_NAME<optional>')
+            this.s3UploaderService.upload(file, 'ACL_TO_APPLY','KEY<optional>', 'BUCKET_NAME<optional>')
                 .subscribe(
                     (data) => {
                         //...
