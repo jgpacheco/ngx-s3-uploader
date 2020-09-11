@@ -4,7 +4,10 @@
 
 The library is inspired by [AngularJS To S3 Upload App][angular-s3-upload-url]
 
-For Angular 6, use [ng6-s3-uploader][ng6-s3-uploader-url]
+| Angular version | Integration branch | Library version |
+|:---------------:|:------------------:|:---------------:|
+|   5 and below   |     angular1-5     |      ^0.5.0     |
+|   6 and above   |       master       |      ^9.0.0     |
 
 ## Installation
 
