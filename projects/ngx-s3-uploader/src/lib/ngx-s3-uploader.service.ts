@@ -1,5 +1,5 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { S3, CognitoIdentityCredentials, WebIdentityCredentials, config } from 'aws-sdk';
 
 export interface S3UploaderConfig {
@@ -22,10 +22,9 @@ export const CONFIG = new InjectionToken<S3UploaderConfig>('config');
 
 @Injectable()
 export class S3UploaderService {
-
   private client: S3;
 
-  constructor( @Inject(CONFIG) private s3UploaderConfig: S3UploaderConfig) {
+  constructor(@Inject(CONFIG) private s3UploaderConfig: S3UploaderConfig) {
     let credentials = {
       accessKeyId: s3UploaderConfig.credentials.accessKeyId,
       secretAccessKey: s3UploaderConfig.credentials.secretAccessKey,
@@ -67,10 +66,10 @@ export class S3UploaderService {
   }
 
   public upload(file: File, acl = 'public-read', key?: string, bucket?: string): Observable<any> {
-    return Observable.create((observer) => {
+    return new Observable((observer) => {
       this.client.upload(
         { Key: key || file.name, Body: file, ACL: acl, ContentType: file.type, Bucket: bucket || this.s3UploaderConfig.bucket },
-        {queueSize: 3 * 1024},
+        { queueSize: 3 * 1024 },
         (error, data) => {
           if (error) { return observer.error(error); }
 
