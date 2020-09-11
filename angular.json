@@ -1,0 +1,163 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-s3-uploader": {
+      "projectType": "library",
+      "root": "projects/ngx-s3-uploader",
+      "sourceRoot": "projects/ngx-s3-uploader/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-s3-uploader/tsconfig.lib.json",
+            "project": "projects/ngx-s3-uploader/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-s3-uploader/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-s3-uploader/src/test.ts",
+            "tsConfig": "projects/ngx-s3-uploader/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-s3-uploader/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-s3-uploader/tsconfig.lib.json",
+              "projects/ngx-s3-uploader/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-s3-uploader-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ngx-s3-uploader-example",
+      "sourceRoot": "projects/ngx-s3-uploader-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-s3-uploader-example",
+            "index": "projects/ngx-s3-uploader-example/src/index.html",
+            "main": "projects/ngx-s3-uploader-example/src/main.ts",
+            "polyfills": "projects/ngx-s3-uploader-example/src/polyfills.ts",
+            "tsConfig": "projects/ngx-s3-uploader-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngx-s3-uploader-example/src/favicon.ico",
+              "projects/ngx-s3-uploader-example/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-s3-uploader-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-s3-uploader-example/src/environments/environment.ts",
+                  "with": "projects/ngx-s3-uploader-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-s3-uploader-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-s3-uploader-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-s3-uploader-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-s3-uploader-example/src/test.ts",
+            "polyfills": "projects/ngx-s3-uploader-example/src/polyfills.ts",
+            "tsConfig": "projects/ngx-s3-uploader-example/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-s3-uploader-example/karma.conf.js",
+            "assets": [
+              "projects/ngx-s3-uploader-example/src/favicon.ico",
+              "projects/ngx-s3-uploader-example/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-s3-uploader-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-s3-uploader-example/tsconfig.app.json",
+              "projects/ngx-s3-uploader-example/tsconfig.spec.json",
+              "projects/ngx-s3-uploader-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-s3-uploader-example/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-s3-uploader-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-s3-uploader-example:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-s3-uploader-example"
+}

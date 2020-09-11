@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-s3-uploader",
+  "whitelistedNonPeerDependencies": ["aws-sdk"],
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "aws-sdk": "aws-sdk"
+    }
+  }
+}
